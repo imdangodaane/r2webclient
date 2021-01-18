@@ -1,0 +1,58 @@
+<div class="r-register">
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username">Tên đăng nhập</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Tên đăng nhập không hợp lệ">
+        <input nz-input formControlName="username" id="username" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Mật khẩu</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Vui lòng điền mật khẩu">
+        <input nz-input type="password" id="password" formControlName="password" (ngModelChange)="updateConfirmValidator()" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Xác nhận mật khẩu</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+        <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+        <ng-template #errorTpl let-control>
+          <ng-container *ngIf="control.hasError('required')">
+            Vui lòng điền lại mật khẩu!
+          </ng-container>
+          <ng-container *ngIf="control.hasError('confirm')">
+            Mật khẩu không đồng nhất!
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="gender" nzRequired>Giới tính</nz-form-label>
+      <nz-radio-group style="display: flex; flex-flow: row nowrap;" formControlName="gender" id="gender">
+        <label style="display: flex; align-items: center;" nz-radio nzValue="M">Nam</label>
+        <label style="display: flex; align-items: center;" nz-radio nzValue="F">Nữ</label>
+      </nz-radio-group>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="birthdate" nzRequired>Ngày sinh</nz-form-label>
+      <nz-date-picker formControlName="birthdate" id="birthdate"></nz-date-picker>
+    <br />
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <label nz-checkbox formControlName="agree">
+          <span>
+            Tôi đồng ý với
+            <a>điều khoản</a>
+            sử dụng.
+          </span>
+        </label>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary">ĐĂNG KÝ</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

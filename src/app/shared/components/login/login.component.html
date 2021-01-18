@@ -1,0 +1,30 @@
+<div class="r-login">
+  <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Vui lòng nhập tên tài khoản!">
+        <nz-input-group nzPrefixIcon="user">
+          <input type="text" nz-input formControlName="userName" placeholder="Tên tài khoản" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Vui lòng nhập mật khẩu!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input type="password" nz-input formControlName="password" placeholder="Mật khẩu" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <div nz-row class="login-form-margin">
+      <div nz-col [nzSpan]="12">
+        <label nz-checkbox formControlName="remember">
+          <span>Nhớ tài khoản</span>
+        </label>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <a class="login-form-forgot">Quên mật khẩu</a>
+      </div>
+    </div>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Đăng nhập</button>
+    Hoặc <a> đăng ký nhanh! </a>
+  </form>
+</div>

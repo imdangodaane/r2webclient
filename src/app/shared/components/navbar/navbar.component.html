@@ -1,0 +1,33 @@
+<div class="r-navbar">
+  <div class="navigation-buttons">
+    <button nz-button nzType="primary" nzShape="round">
+      <a routerLink="/" routerLinkActive="active">
+        Trang chủ
+      </a>
+    </button>
+    <button nz-button nzType="primary" nzShape="round">
+      <a routerLink="/register" routerLinkActive="active">
+        Đăng ký
+      </a>
+    </button>
+    <button nz-button nzType="primary" nzShape="round">
+      <a routerLink="/download" routerLinkActive="active">
+        Tải game
+      </a>
+    </button>
+    <button nz-button nzType="primary" nzShape="round"
+      (click)="onOpenLoginModal($event)"
+    >
+      Đăng nhập
+    </button>
+  </div>
+</div>
+
+<nz-modal
+  [(nzVisible)]="isOpenLoginModal"
+  nzTitle="Đăng nhập"
+  (nzOnCancel)="handleLoginCancel()"
+  (nzOnOk)="handleLoginOk()"
+>
+  <app-login></app-login>
+</nz-modal>

@@ -1,0 +1,17 @@
+.r-navbar {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-top: 0.5rem;
+
+  .navigation-buttons {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    button:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

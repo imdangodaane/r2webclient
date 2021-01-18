@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'BeVietnam-Medium';
+  src: url(assets/fonts/BeVietnam/BeVietnam-Medium.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: 'iCielAvantGardeGothic-Book';
+  src: url(assets/fonts/iCiel/iCielAvantGardeGothic-Book.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: 'iCielAvantGardeGothic-Medium';
+  src: url(assets/fonts/iCiel/iCielAvantGardeGothic-Medium.ttf) format("opentype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-family: 'iCielAvantGardeGothic-Book';
+  font-family: 'BeVietnam-Medium';
+  // line-height: 1.95;
+}
+
+body {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.r-app-root {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
