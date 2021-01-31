@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://rag0.com',
+  apiUrl: 'http://localhost:3000',
 };
 
 /*
