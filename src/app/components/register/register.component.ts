@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-register',
@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private notification: NzNotificationService,
+    private registerService: RegisterService,
   ) { }
 
   ngOnInit(): void {
@@ -44,9 +45,22 @@ export class RegisterComponent implements OnInit {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
-    if (this.validateForm.status === 'INVALID') {
-      this.createNotification('error', 'Đăng ký thất bại!', 'Vui lòng nhập đủ thông tin như yêu cầu.');
-    }
+
+    console.log(this.validateForm.value);
+
+    this.registerService.registerUser({
+      userid: this.validateForm.value['username'],
+      userPass: this.validateForm.value['password'],
+      sex: this.validateForm.value['gender'],
+      birthdate: this.validateForm.value['birthdate']?.toISOString() || new Date().toISOString(),
+    }).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.error(err);
+      },
+    );
   }
 
   updateConfirmValidator(): void {
